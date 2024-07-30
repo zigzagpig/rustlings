@@ -1,0 +1,1102 @@
+# INTRO
+
+[[exercises]]
+name = "intro1"
+path = "exercises/intro/intro1.rs"
+mode = "compile"
+hint = """
+删除文件 exercises/intro/intro1.rs 中的注释 I AM NOT DONE
+以前往下一个练习。"""
+
+[[exercises]]
+name = "intro2"
+path = "exercises/intro/intro2.rs"
+mode = "compile"
+hint = """
+在格式化字符串后添加一个参数。"""
+
+# VARIABLES
+
+[[exercises]]
+name = "variables1"
+path = "exercises/variables/variables1.rs"
+mode = "compile"
+hint = """
+第8行的声明语句遗漏了一个关键字，Rust需要用使用它
+来创建一个新的变量绑定。"""
+
+[[exercises]]
+name = "variables2"
+path = "exercises/variables/variables2.rs"
+mode = "compile"
+hint = """
+编译器信息说 Rust 根据给定的信息无法推断变量 `x` 绑定的变量的类型。
+如果你在第7行加上类型注解会发生什么？
+如果你给 x 一个值呢？
+如果你两个都做呢？
+不管怎样，x 应该是什么类型的？
+如果 x 和 10 是同一个类型会怎样？如果不是同一个类型会怎样？"""
+
+[[exercises]]
+name = "variables3"
+path = "exercises/variables/variables3.rs"
+mode = "compile"
+hint = """
+哎呀！在这个练习中，我们在第7行创建了一个变量绑定，
+并且尝试在第8行使用，但是我们没有给它一个值。
+我们无法打印一个不存在的东西；尝试给 x 一个值！
+这是一个在任何编程语言中都很容易犯的会导致 bug 的错误 -- 感谢 Rust 编译器为我们捕获了它！"""
+
+[[exercises]]
+name = "variables4"
+path = "exercises/variables/variables4.rs"
+mode = "compile"
+hint = """
+在 Rust 中，变量绑定默认是不可变的。但是这里我们尝试重新赋给 x 一个不同的值！
+作为替代，有一个关键字让我们将变量设置为可变的。"""
+
+[[exercises]]
+name = "variables5"
+path = "exercises/variables/variables5.rs"
+mode = "compile"
+hint = """
+在练习 variables4 中我们已经学习了如果使用特定关键字将一个不可变变量设为可变变量。
+不幸的是，这在这个练习中没有帮助，因为我们想要赋一个不同类型的值给一个已存在的变量。
+有时你可能也想重复使用已经存在的变量名因为你想要像这个练习一样只想要将其以不同类型的值覆盖。
+幸运的是，Rust 在这个问题上有一个强大的解决方案： 'Shadowing'（'遮蔽'）！
+你可以在书本的章节
+'变量和可变性' https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#shadowing
+（译者注：中文版本 https://rustwiki.org/zh-CN/book/ch03-01-variables-and-mutability.html#%E9%81%AE%E8%94%BD）
+中阅读到更多关于 'Shadowing' 的内容。
+然后尝试使用这项技术来解决这个练习吧。"""
+
+[[exercises]]
+name = "variables6"
+path = "exercises/variables/variables6.rs"
+mode = "compile"
+hint = """
+我们知道了变量和可变性，但是这里还有另一种重要类型的可用变量：常量。
+常量总是不可变的，并且它们以关键字 'const' 而不是关键字 'let' 进行声明。
+常量的类型也必须总是被注解。
+
+通过在书本的章节 '变量和可变性' 的 
+'常量' 小节 https://doc.rust-lang.org/book/ch03-01-variables-and-mutability.html#constants
+（译者注：中文版本 https://rustwiki.org/zh-CN/book/ch03-01-variables-and-mutability.html#%E5%B8%B8%E9%87%8F）
+阅读更多关于常量以及其与变量的不同。
+"""
+
+# FUNCTIONS
+
+[[exercises]]
+name = "functions1"
+path = "exercises/functions/functions1.rs"
+mode = "compile"
+hint = """
+这个主程序正在调用一个期待存在的函数，但是这个函数不存在。
+它希望这个函数有一个名字 `call_me`。
+它希望这个函数不接受任何参数，也不返回值。
+这听起来很像 `main` 函数，不是吗？"""
+
+[[exercises]]
+name = "functions2"
+path = "exercises/functions/functions2.rs"
+mode = "compile"
+hint = """
+Rust 要求函数签名的所有部分都有类型注解，
+但是 `call_me` 缺少了 `num` 的类型注解。"""
+
+[[exercises]]
+name = "functions3"
+path = "exercises/functions/functions3.rs"
+mode = "compile"
+hint = """
+这一次，函数 *声明* 是好的，但是在调用函数的地方有一些问题。
+提示一下，在 Rustlings 中你可以自由使用不同地方案！
+观察模式只会在你删除注释 I AM NOT DONE 之后跳转到下一个练习。"""
+
+[[exercises]]
+name = "functions4"
+path = "exercises/functions/functions4.rs"
+mode = "compile"
+hint = """
+错误信息指向了第17行并说它期待在 `->` 之后有一个类型。
+这是函数的返回值类型应处的位置 -- 看一下示例函数 `is_even`！
+
+同样的：你是否有注意到，技术上，这里 u32 会是更适合价格的类型，因为它们不能为负数？
+如果是这样的话，那就太好了！"""
+
+[[exercises]]
+name = "functions5"
+path = "exercises/functions/functions5.rs"
+mode = "compile"
+hint = """
+这是一个非常常见的错误，可以通过删除一个字符解决。
+这是因为 Rust 区分了表达式和语句：表达式基于其操作返回一个值，而语句则返回一个 () 类型，其行为与 C/C++ 中的 `void`类似。
+它们不是同一个东西。有两种解决方法：
+1. 在 `num * num;` 之前添加一个 `return`
+2. 删除 `;`，使其变为 `num * num`"""
+
+# IF
+
+[[exercises]]
+name = "if1"
+path = "exercises/if/if1.rs"
+mode = "test"
+hint = """
+如果你想要的话，只用一行来完成是可行的！
+一些来自其它语言的相似例子：
+- 在 C(++) 中这会是： `a > b ? a : b`
+- 在 Python 中这会是： `a if a > b else b`
+记住在 Rust 中：
+- if 判别式不需要被圆括号包含
+- `if`/`else` 是表达式
+- 每个判别式后跟一个 `{}` 块"""
+
+[[exercises]]
+name = "if2"
+path = "exercises/if/if2.rs"
+mode = "test"
+hint = """
+对于第一个编译器错误，Rust 中每个条件分支都需要返回相同的类型！
+为了使测试通过，你需要使用多个条件分支来判断不同的输入。"""
+
+# QUIZ 1
+
+[[exercises]]
+name = "quiz1"
+path = "exercises/quiz1.rs"
+mode = "test"
+hint = "这次没有提示 ;)"
+
+# PRIMITIVE TYPES
+
+[[exercises]]
+name = "primitive_types1"
+path = "exercises/primitive_types/primitive_types1.rs"
+mode = "compile"
+hint = "这次没有提示 ;)"
+
+[[exercises]]
+name = "primitive_types2"
+path = "exercises/primitive_types/primitive_types2.rs"
+mode = "compile"
+hint = "这次没有提示 ;)"
+
+[[exercises]]
+name = "primitive_types3"
+path = "exercises/primitive_types/primitive_types3.rs"
+mode = "compile"
+hint = """
+有一个根据确切大小来初始化数组的快捷方法，这样你就不用写100个值了（当然你也可以这样做！）。
+比如，你可以：
+let array = ["Are we there yet?"; 10];
+另外：关于 `a.len() >= 100` 你还能使用什么其它方式实现吗？"""
+
+[[exercises]]
+name = "primitive_types4"
+path = "exercises/primitive_types/primitive_types4.rs"
+mode = "test"
+hint = """
+通过阅读以下文章来认识 所有权 -> 切片 -> 其它切片
+https://doc.rust-lang.org/book/ch04-03-slices.html
+https://rustwiki.org/zh-CN/book/ch04-03-slices.html（中文版，译者注）
+并且使用你想要的起始和结束索引获取数组切片。
+
+如果你很好奇为什么 `assert_eq!` 第二个参数是一个引用但是第一个参数不需要加上 & 号来作为引用
+的话，阅读以下关于强制转换的文档：
+https://doc.rust-lang.org/nomicon/coercions.html"""
+
+[[exercises]]
+name = "primitive_types5"
+path = "exercises/primitive_types/primitive_types5.rs"
+mode = "compile"
+hint = """
+看一下书本的 数据类型 -> 元组类型 章节：
+https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type
+https://rustwiki.org/zh-CN/book/ch03-02-data-types.html#%E5%85%83%E7%BB%84%E7%B1%BB%E5%9E%8B（中文版，译者注）
+特别是关于解构的部分（此章节的倒数第二个例子）。
+你需要使用模式绑定 `name` 和 `age` 到元组的相应部分。
+你可以做到的！！"""
+
+[[exercises]]
+name = "primitive_types6"
+path = "exercises/primitive_types/primitive_types6.rs"
+mode = "test"
+hint = """
+这里你可以使用 `let` 解构一个元组，尝试一下使用索引来替代吧，
+这在书本的 数据类型 -> 元组类型 章节的最后一个例子中可以看到解释：
+https://doc.rust-lang.org/book/ch03-02-data-types.html#the-tuple-type
+https://rustwiki.org/zh-CN/book/ch03-02-data-types.html#%E5%85%83%E7%BB%84%E7%B1%BB%E5%9E%8B（中文版，译者注）
+现在你的工具箱中又多一件工具了！"""
+
+# VECS
+
+[[exercises]]
+name = "vecs1"
+path = "exercises/vecs/vecs1.rs"
+mode = "test"
+hint = """
+在 Rust 中，有两种方法定义一个 Vector。
+1. 第一种方式是使用 `Vec::new()` 函数来创建一个新的vector，
+   并通过 `push()` 方法填充它。
+2. 第二种方式更简单一点，使用 `vec![]` 宏并在方括号中定义你的元素。
+详见 Rust 书的这个章节：https://doc.rust-lang.org/stable/book/ch08-01-vectors.html
+https://rustwiki.org/zh-CN/book/ch08-01-vectors.html（中文版，译者注）
+"""
+
+[[exercises]]
+name = "vecs2"
+path = "exercises/vecs/vecs2.rs"
+mode = "test"
+hint = """
+提示1：`i` 迭代为 Vec 的每个元素。你可以乘它吗？
+
+提示2：在第一函数中，有一个方法直接访问 Vec 中存储的数字，
+那就是使用 * 解引用操作符。以这种方式你可以访问和写入数字。
+
+当你完成了两个函数后，自行决定你喜欢的的方式。
+你觉得 Rust 开发者最常用的模式是什么？
+"""
+
+# MOVE SEMANTICS
+
+[[exercises]]
+name = "move_semantics1"
+path = "exercises/move_semantics/move_semantics1.rs"
+mode = "compile"
+hint = """
+所以你在第13行获得了错误 "cannot borrow immutable local variable `vec1` as mutable"
+（无法借用不可变本地变量 `vec1` 为可变的），对吗？
+修复方法是添加一个关键字，不过不是添加到出现错误的第13行。
+
+另外：尝试在调用 `fill_vec()` 之后访问 `vec0`，看看会发生什么！"""
+
+[[exercises]]
+name = "move_semantics2"
+path = "exercises/move_semantics/move_semantics2.rs"
+mode = "compile"
+hint = """
+那么，`vec0` 作为一个参数传入了 `fill_vec` 函数。在 Rust 中，
+当一个参数被传入一个函数且没有被明确地返回时，
+你再也不能使用原始变量。我们把这叫做 "moving(移动)" 一个变量。
+被移动到函数（或块域）并且没有被明确返回的变量会在函数的末尾
+被 "dropped"。这里发生的也是这样的事情。
+有几种方法可以修复它，如果你想的话可以试一下：
+1. 制作另一个包含 `vec0` 中的数据的版本并将其传入到 `fill_vec`。
+2. 使 `fill_vec` 借用它的参数而不是获取其所有权，
+   然后在函数中复制它的数据以返回一个自己的 `Vec<i32>`
+3. 使 `fill_vec` *可变地* 借用它参数的一个引用（这个参数也需要是可变的），
+   直接修改它，然后不要返回任何东西。这样你就可以完全摆脱 `vec1` 了 -- 注意
+   这将会改变第一个 `println!` 的打印结果"""
+
+[[exercises]]
+name = "move_semantics3"
+path = "exercises/move_semantics/move_semantics3.rs"
+mode = "compile"
+hint = """
+这一个练习和上一个的区别是 `fn fill_vec` 的第一行现在没有 `let mut vec = vec;` 了。
+你可以，不要添加回那一行，而是在某个地方添加 `mut` 来改变一个已有的绑定，
+将其由不可变改为可变绑定 :)"""
+
+[[exercises]]
+name = "move_semantics4"
+path = "exercises/move_semantics/move_semantics4.rs"
+mode = "compile"
+hint = """
+停止阅读一旦你觉得你有足够的方向了 :) 或者尝试
+执行一个步骤然后修复其导致的编译器错误！
+所以最终目标是：
+   - 去掉 main 函数中创建一个新的 vector 的第一行
+   - 然后 `vec0` 就不存在了，所以我们不能将其传入 `fill_vec` 中
+   - 我们不想往 `fill_vec` 中传入任何东西，所以它的签名需要反映它不需要传入任何参数
+   - 因为我们不再在 `main` 中创建一个新的 vec，我们需要在 `fill_vec` 中创建
+     一个新的 vec，就像我们在 `main` 中做的那样"""
+
+[[exercises]]
+name = "move_semantics5"
+path = "exercises/move_semantics/move_semantics5.rs"
+mode = "compile"
+hint = """
+仔细分析关于每个可变引用在作用域中的范围。
+在获取可变引用之后，直接改变 (x) 的值是否有帮助？
+在书本的 引用和借用 章节的 “可变引用” 阅读更多关于 “可变引用” 的内容：
+https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html#mutable-references.
+https://rustwiki.org/zh-CN/book/ch04-02-references-and-borrowing.html#%E5%8F%AF%E5%8F%98%E5%BC%95%E7%94%A8（中文版，译者注）
+"""
+
+[[exercises]]
+name = "move_semantics6"
+path = "exercises/move_semantics/move_semantics6.rs"
+mode = "compile"
+hint = """
+为了找到答案，你可以查阅书本章节 “引用和借用”：
+https://doc.rust-lang.org/stable/book/ch04-02-references-and-borrowing.html
+https://rustwiki.org/zh-CN/book/ch04-02-references-and-borrowing.html（中文版，译者注）
+第一个问题是，`get_char` 获取了字符串的所有权。
+所以 `data` 被移动了并且不能再被 `string_uppercase` 使用
+`data` 先是被移动到 `get_char`，意味着 `string_uppercase` 不能操作这个数据了。
+一旦你修复了它，`string_uppercase` 的函数签名也需要被适配。
+你能想出办法吗？
+
+另一个提示：它需要使用 `&` 符号。"""
+
+# STRUCTS
+
+[[exercises]]
+name = "structs1"
+path = "exercises/structs/structs1.rs"
+mode = "test"
+hint = """
+Rust 不止一种结构体。事实上，三种，所有类型都是用来将有关联的数据包裹在一起。
+这里有普通的（或经典的）结构体。这些是存储在相应字段的数据的集合。
+元组结构体基本上就叫做元组。
+最后是类单元结构体。它们没有字段，在泛型上很有用。
+
+在这个练习中你需要完成并实现其中一种类型。
+在书本中阅读更多关于结构体的内容：
+https://doc.rust-lang.org/book/ch05-01-defining-structs.html
+https://rustwiki.org/zh-CN/book/ch05-00-structs.html（中文版，译者注）"""
+
+[[exercises]]
+name = "structs2"
+path = "exercises/structs/structs2.rs"
+mode = "test"
+hint = """
+创建一个结构体示例是非常简单的，你所需要做的就是给它的字段赋值。
+不过也有一些实例化结构体的捷径。
+看一下书本，并发现更多：https://doc.rust-lang.org/stable/book/ch05-01-defining-structs.html#creating-instances-from-other-instances-with-struct-update-syntax
+https://rustwiki.org/zh-CN/book/ch05-01-defining-structs.html#%E4%BD%BF%E7%94%A8%E7%BB%93%E6%9E%84%E4%BD%93%E6%9B%B4%E6%96%B0%E8%AF%AD%E6%B3%95%E4%BB%8E%E5%85%B6%E4%BB%96%E5%AE%9E%E4%BE%8B%E5%88%9B%E5%BB%BA%E5%AE%9E%E4%BE%8B（中文版，译者注）"""
+
+[[exercises]]
+name = "structs3"
+path = "exercises/structs/structs3.rs"
+mode = "test"
+hint = """
+对于 is_international：是什么让一个包裹国际化？看起来与它去的地方有关系对吗？
+
+对于 get_fees：这个方法传入一个额外参数，Package 结构体中有一个与它有关系的字段吗？
+
+看一下书本来找到更多关于方法实现的内容：https://doc.rust-lang.org/book/ch05-03-method-syntax.html
+https://rustwiki.org/zh-CN/book/ch05-03-method-syntax.html（中文版，译者注）"""
+
+# ENUMS
+
+[[exercises]]
+name = "enums1"
+path = "exercises/enums/enums1.rs"
+mode = "compile"
+hint = "这次没有提示 ;)"
+
+[[exercises]]
+name = "enums2"
+path = "exercises/enums/enums2.rs"
+mode = "compile"
+hint = """
+你可以创建拥有不同类型的不同值的枚举，比如说无数据、匿名结构、一个字符串、元组，等等"""
+
+[[exercises]]
+name = "enums3"
+path = "exercises/enums/enums3.rs"
+mode = "test"
+hint = """
+第一步，你可以添加枚举以使代码可以无错误编译。
+然后在 `process()` 中创建一个匹配表达式。
+注意有些消息变量你需要在匹配表达式中进行解构，以得到变量中的值。"""
+
+# STRINGS
+
+[[exercises]]
+name = "strings1"
+path = "exercises/strings/strings1.rs"
+mode = "compile"
+hint = """
+`current_favorite_color` 函数现在返回了一个字符串切片，这个切片的生命周期为 `'static`。
+我们知道这一点是因为字符串存在于我们的代码本身 -- 它不来自于文件或用户输入或其它程序 -- 所以它将随着我们的程序存在。
+但是它仍然使一个字符串切片。有个通过转换字符串切片来创建一个 `String` 的方法，
+它在书本的 字符串 章节，还有一个方法是使用 `From` trait。"""
+
+[[exercises]]
+name = "strings2"
+path = "exercises/strings/strings2.rs"
+mode = "compile"
+hint = """
+是的，有个很容易修复这个 bug 的方法，那就是改变 `word` 绑定的值为一个字符串切片而不是一个 `String`， 不是吗？
+不过也有另一个方法，那就是在第 9 行添加一个字符，这会强制转换 `String` 为一个字符串切片。"""
+
+[[exercises]]
+name = "strings3"
+path = "exercises/strings/strings3.rs"
+mode = "test"
+hint = """
+有成吨的关于字符串的标准库函数。
+让我们试一下吧：<https://doc.rust-lang.org/std/string/struct.String.html#method.trim>！
+
+对于 compose_me 方法：你可以使用 `format!` 宏，或者将一个字符串切片转换为原始字符串，
+这样你就可以自由扩展它了。"""
+
+[[exercises]]
+name = "strings4"
+path = "exercises/strings/strings4.rs"
+mode = "compile"
+hint = "这次没有提示 ;)"
+
+# MODULES
+
+[[exercises]]
+name = "modules1"
+path = "exercises/modules/modules1.rs"
+mode = "compile"
+hint = """
+Rust 中所有东西默认都是私有(private)的 -- 但是我们可以通过一个参数使一些变为公共的(public)！
+编译器的错误应该指向了一个需要变为公共的(public)东西。"""
+
+[[exercises]]
+name = "modules2"
+path = "exercises/modules/modules2.rs"
+mode = "compile"
+hint = """
+delicious_snacks 模块正在试图对外呈现一个接口，其不同于
+它的内部结构（`fruits` 和 `veggies` 模块以及相关常量）。完成 `use` 语句
+以修复 main 中的调用并找到两个常量都缺失的一个关键字。"""
+
+[[exercises]]
+name = "modules3"
+path = "exercises/modules/modules3.rs"
+mode = "compile"
+hint = """
+UNIX_EPOCH 和 SystemTime 被声明于 std::time 模块。使用一个 use 语句以将
+这俩引入作用域。你可以使用嵌套路径或者 glob 运算符，这样就可以只用一行就将它们都引入。"""
+
+# HASHMAPS
+
+[[exercises]]
+name = "hashmaps1"
+path = "exercises/hashmaps/hashmaps1.rs"
+mode = "test"
+hint = """
+提示1：看一下函数的返回值类型并推导出 `basket` 的类型。
+提示2：水果的个数应至少为5。并且你必须放入至少三种水果。
+"""
+
+[[exercises]]
+name = "hashmaps2"
+path = "exercises/hashmaps/hashmaps2.rs"
+mode = "test"
+hint = """
+使用哈希表的 `entry()` 和 `or_insert()` 方法来完成这个练习。
+了解更多：https://doc.rust-lang.org/stable/book/ch08-03-hash-maps.html#only-inserting-a-value-if-the-key-has-no-value
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch08-03-hash-maps.html#%E5%8F%AA%E5%9C%A8%E9%94%AE%E6%B2%A1%E6%9C%89%E5%AF%B9%E5%BA%94%E5%80%BC%E6%97%B6%E6%8F%92%E5%85%A5
+"""
+
+[[exercises]]
+name = "hashmaps3"
+path = "exercises/hashmaps/hashmaps3.rs"
+mode = "test"
+hint = """
+提示1：使用哈希表的 `entry()` 和 `or_insert()` 方法在得分表中插入与每个团队对应的条目。
+提示2：如果给定键已经有了一个条目，则 `entry()` 返回的值可以基于已存在的值进行更新。
+了解更多：https://doc.rust-lang.org/book/ch08-03-hash-maps.html#updating-a-value-based-on-the-old-value
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch08-03-hash-maps.html#%E6%A0%B9%E6%8D%AE%E6%97%A7%E5%80%BC%E6%9B%B4%E6%96%B0%E4%B8%80%E4%B8%AA%E5%80%BC
+"""
+
+# QUIZ 2
+
+[[exercises]]
+name = "quiz2"
+path = "exercises/quiz2.rs"
+mode = "test"
+hint = "这次没有提示 ;)"
+
+# OPTIONS
+
+[[exercises]]
+name = "options1"
+path = "exercises/options/options1.rs"
+mode = "test"
+hint = """
+Option 可以有一个含内部值的 Some 值，或者一个不含内部值的 None。
+有很多方法可以获取内部值，你可以使用 unwrap，或模式匹配。
+Unwrap 是最简单的，但是你要怎么安全地使用它以避免它以后在你面前发生 panic？"""
+
+[[exercises]]
+name = "options2"
+path = "exercises/options/options2.rs"
+mode = "test"
+hint = """
+了解清楚：
+https://doc.rust-lang.org/rust-by-example/flow_control/if_let.html
+https://doc.rust-lang.org/rust-by-example/flow_control/while_let.html
+
+请记住，Option 可以被堆叠在 if let 和 while let 中。
+比如： Some(Some(variable)) = variable2
+另请参见 Option::flatten
+"""
+
+[[exercises]]
+name = "options3"
+path = "exercises/options/options3.rs"
+mode = "compile"
+hint = """
+编译器说一个部分转移发生在 `match` 语句中。怎样能够避免？
+编译器展示了需要的修正。按照编译器的建议进行更正后，
+阅读：https://doc.rust-lang.org/std/keyword.ref.html"""
+
+# ERROR HANDLING
+
+[[exercises]]
+name = "errors1"
+path = "exercises/error_handling/errors1.rs"
+mode = "test"
+hint = """
+`Ok` 和 `Err` 是 `Result` 变量之一，然后测试说的是 `generate_nametag_text`
+应该返回一个 `Result` 而不是一个 `Option`。
+
+要改变这，你将需要：
+   - 更新函数签名的返回值类型为 Result<String, String>，它的变量值可以是 `Ok(String)` 和 `Err(String)`
+   - 修改函数体返回 `Some(stuff)` 的地方为返回 `Ok(stuff)`
+   - 修改函数体返回 `None` 的地方为返回 `Err(error message)`"""
+
+[[exercises]]
+name = "errors2"
+path = "exercises/error_handling/errors2.rs"
+mode = "test"
+hint = """
+处理这个的的一种方法是使用一个 `match` 语句于 `item_quantity.parse::<i32>()`，
+其可能为 `Ok(something)` 和 `Err(something)`。这个模式在 Rust 中非常常见，
+所以有一个 `?` 操作符，它可以很好地做到你想要用匹配表达式为你做的事情！
+看一下错误处理章节的这个小节：
+https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#a-shortcut-for-propagating-errors-the--operator
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch09-02-recoverable-errors-with-result.html#%E4%BC%A0%E6%92%AD%E9%94%99%E8%AF%AF%E7%9A%84%E7%AE%80%E5%86%99-%E8%BF%90%E7%AE%97%E7%AC%A6
+并试一下！"""
+
+[[exercises]]
+name = "errors3"
+path = "exercises/error_handling/errors3.rs"
+mode = "compile"
+hint = """
+如果其它函数可以返回 `Result`，那么为什么 `main` 不能呢？
+从 main 函数中返回像 Result<(), ErrorType> 这样的东西是非常常见的。
+这里用了单元类型 (`()`) 是因为在正常情况下不需要返回任何东西。"""
+
+[[exercises]]
+name = "errors4"
+path = "exercises/error_handling/errors4.rs"
+mode = "test"
+hint = """
+`PositiveNonzeroInteger::new` 总是创建一个新示例并返回一个 `Ok` 作为结果。
+它应该做些检查，如果检查失败的话就返回 `Err`，并只有在那些检查判断所有事情都没问题时返回 `Ok` :)"""
+
+[[exercises]]
+name = "errors5"
+path = "exercises/error_handling/errors5.rs"
+mode = "compile"
+hint = """
+`main()` 有可能产生两种不同的 `Result` 类型，它们通过 `?` 操作符传播。
+我们怎样声明 `main()` 的返回值类型以允许它们？
+
+实际上，`?` 操作符调用在一个错误值上调用 `From::from` 以将其转换为一个实现了 boxed trait 的对象，
+即一个 `Box<dyn error::Error>`。这个实现了 boxed trait 的对象是多样的，由于所有的错误都实现了
+`error::Error` trait，我们可以用一个 "Box" 对象抓取多种类型的错误。
+
+看一下书本的这个部分：
+https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html#a-shortcut-for-propagating-errors-the--operator
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch09-02-recoverable-errors-with-result.html#%E4%BC%A0%E6%92%AD%E9%94%99%E8%AF%AF%E7%9A%84%E7%AE%80%E5%86%99-%E8%BF%90%E7%AE%97%E7%AC%A6
+
+阅读跟多关于错误装箱的内容：
+https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html
+（中文版，译者注）https://rustwiki.org/zh-CN/rust-by-example/error/multiple_error_types/boxing_errors.html
+
+阅读更多关于使用 `?` 的内容：
+https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html
+（中文版，译者注）https://rustwiki.org/zh-CN/rust-by-example/error/multiple_error_types/reenter_question_mark.html
+"""
+
+[[exercises]]
+name = "errors6"
+path = "exercises/error_handling/errors6.rs"
+mode = "test"
+hint = """
+这个练习使用了来自 errors4 的 `PositiveNonzeroInteger` 的完成版本。
+
+在教你做事的 TODO 行下面，有一个在 `Result` 上使用 `map_err()` 方法，将一种错误转换为另一种的例子。
+尝试使用类似的方法在来自 `parse()` 的 `Result` 上。你可能使用 `?` 操作符使函数提前返回，
+或者你可能使用一个 `match` 表达式，或者还有其它方法！
+
+你可以在 `impl ParsePosNonzeroError` 里创建另一个函数来使用 `map_err()`。
+
+在 `std::result` 文档中阅读更多关于 `map_err()` 的内容：
+https://doc.rust-lang.org/std/result/enum.Result.html#method.map_err"""
+
+# Generics
+
+[[exercises]]
+name = "generics1"
+path = "exercises/generics/generics1.rs"
+mode = "compile"
+hint = """
+Rust 中的 Vectors 使用泛型来创建任意类型的动态大小数组。
+你需要告诉编译器你要推入这个 vector 的类型。"""
+
+[[exercises]]
+name = "generics2"
+path = "exercises/generics/generics2.rs"
+mode = "test"
+hint = """
+现在我们只包装了类型为 'u32' 的值。
+或许我们可以以某种方法更新这个数据类型的显示引用？
+
+如果你仍然被卡住，阅读： https://doc.rust-lang.org/stable/book/ch10-01-syntax.html#in-method-definitions
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch10-01-syntax.html#%E6%96%B9%E6%B3%95%E5%AE%9A%E4%B9%89%E4%B8%AD%E7%9A%84%E6%B3%9B%E5%9E%8B
+"""
+
+# TRAITS
+
+[[exercises]]
+name = "traits1"
+path = "exercises/traits/traits1.rs"
+mode = "test"
+hint = """
+关于 Rust 的 trait 的讨论，请访问：
+https://doc.rust-lang.org/book/ch10-02-traits.html
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch10-02-traits.html
+"""
+
+[[exercises]]
+name = "traits2"
+path = "exercises/traits/traits2.rs"
+mode = "test"
+hint = """
+注意 trait 如何获取 'self' 的所有权和返回 `Self`。
+尝试修改传入的字符串 vector。注意下测试中的结果看起来应该是怎样的！
+
+Vector 提供了适当的方法在尾部添加元素。看一下这个文档：https://doc.rust-lang.org/std/vec/struct.Vec.html"""
+
+[[exercises]]
+name = "traits3"
+path = "exercises/traits/traits3.rs"
+mode = "test"
+hint = """
+Traits 可以有函数的默认实现。实现了这个 trait 的结构体
+可以使用默认版本的函数，如果它们选择不自行实现这个函数。
+
+查看文档：https://doc.rust-lang.org/book/ch10-02-traits.html#default-implementations
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch10-02-traits.html#%E9%BB%98%E8%AE%A4%E5%AE%9E%E7%8E%B0
+"""
+
+[[exercises]]
+name = "traits4"
+path = "exercises/traits/traits4.rs"
+mode = "test"
+hint = """
+作为替换，你可以使用 trait 而不是使用混合类型。
+尝试替换 '??' 为 'impl <这里会是什么？>'
+
+查看文档：https://doc.rust-lang.org/book/ch10-02-traits.html#traits-as-parameters
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch10-02-traits.html#trait-%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0
+"""
+
+[[exercises]]
+name = "traits5"
+path = "exercises/traits/traits5.rs"
+mode = "compile"
+hint = """
+为了确保一个参数实现了多个 traits，使用 '+ 号'。尝试替换 '??' 为 'impl <> + <>'。
+
+查看文档：https://doc.rust-lang.org/book/ch10-02-traits.html#specifying-multiple-trait-bounds-with-the--syntax
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch10-02-traits.html#%E9%80%9A%E8%BF%87--%E6%8C%87%E5%AE%9A%E5%A4%9A%E4%B8%AA-trait-bound
+"""
+
+# QUIZ 3
+
+[[exercises]]
+name = "quiz3"
+path = "exercises/quiz3.rs"
+mode = "test"
+hint = """
+为了找到这个挑战的解决方法，你将需要回想你关于 traits 的知识，
+特别是 Trait Bound 语法 - 你还可能需要这个： `use std::fmt::Display;`。"""
+
+# TESTS
+
+[[exercises]]
+name = "tests1"
+path = "exercises/tests/tests1.rs"
+mode = "test"
+hint = """
+你甚至不用在测试中写任何代码 -- 你可以值测试值并运行，虽然在显示中你不会这样做 :)
+`assert!` 是一个宏，需要一个参数。基于参数的值，`assert!` 将什么都不做（这种场景下测试将会通过）
+或者 `assert!` 将会 panic （这种情况下测试将会失败）。因此，尝试给 `assert!` 不同的值并看看
+哪个编译了，哪个通过了，哪个失败了 :)"""
+
+[[exercises]]
+name = "tests2"
+path = "exercises/tests/tests2.rs"
+mode = "test"
+hint = """
+就如前一个练习那样，你不需要写任何代码使这个测试编译和运行。
+`assert_eq!` 是一个宏，获取两个参数并比较它们。尝试给它两个相等的值！
+尝试给它两个不同的值！尝试给它两个不同类型的值！尝试交换第一个参数和第二个参数的位置！"""
+
+[[exercises]]
+name = "tests3"
+path = "exercises/tests/tests3.rs"
+mode = "test"
+hint = """
+你可以给 `assert!` 传入正确的函数调用 -- 所以你可以像 `assert!(having_fun())` 这样做。
+如果你想要检查你确实获得了 false，你可以使用 `!` 进行取反，比如 `assert!(!having_fun())`。"""
+
+# LIFETIMES
+
+[[exercises]]
+name = "lifetimes1"
+path = "exercises/lifetimes/lifetimes1.rs"
+mode = "compile"
+hint = """
+让编译器指导你。如果你需要帮助的话，也可以看一下书本：
+https://doc.rust-lang.org/book/ch10-03-lifetime-syntax.html
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch10-03-lifetime-syntax.html"""
+
+[[exercises]]
+name = "lifetimes2"
+path = "exercises/lifetimes/lifetimes2.rs"
+mode = "compile"
+hint = """
+记住泛型生命周期 'a 会得到具体的生命周期，它会等于生命周期 x 和 y 中较小的那个。
+在保持内部块的前提下，你有至少两种途径可以达成你想要的结果：
+1. 移动 string2 声明使其和 string1 存活一样久（result 是怎么被声明的？）
+2. 移动 println! 到内部块中"""
+
+[[exercises]]
+name = "lifetimes3"
+path = "exercises/lifetimes/lifetimes3.rs"
+mode = "compile"
+hint = """
+如果你在一个结构体字段上使用生命周期标注，你需要在其它什么地方添加它？"""
+
+# STANDARD LIBRARY TYPES
+
+[[exercises]]
+name = "iterators1"
+path = "exercises/iterators/iterators1.rs"
+mode = "compile"
+hint = """
+步骤1：
+在我们进行遍历之前，需要先给集合 `my_fav_fruits` 放点什么。
+那可能是什么？查看 vector 的结构定义以获得灵感：
+https://doc.rust-lang.org/std/vec/struct.Vec.html。
+步骤 2 & 步骤 3:
+与上面和下面的行非常相似。你懂的！
+步骤 4:
+一个迭代器遍历和集合中的所有元素，但是如果元素用完了呢？
+这里我们会期待什么？如果你卡住了，查看文档以获取办法：
+https://doc.rust-lang.org/std/iter/trait.Iterator.html
+"""
+
+[[exercises]]
+name = "iterators2"
+path = "exercises/iterators/iterators2.rs"
+mode = "test"
+hint = """
+步骤 1
+变量 `first` 是一个 `char`。它需要变为大写并添加到 `c` 剩余的字符中以返回正确的 `String`。
+可以使用 `as_str` 方法将 `c` 剩余的字符视作一个字符串切片。
+关于 `char` 的文档包含很多有用的方法。
+https://doc.rust-lang.org/std/primitive.char.html
+
+步骤 2
+从切片创建一个迭代器。通过 `capitalize_first` 函数转换迭代中的值。
+记住要 collect 这个迭代器。
+
+步骤 3
+惊喜的是，这个和上一个方案很像。Collect 是非常强大和通用的。
+Rust 只需要知道你希望的类型就行。"""
+
+[[exercises]]
+name = "iterators3"
+path = "exercises/iterators/iterators3.rs"
+mode = "test"
+hint = """
+当不能整除时，divide 函数需要返回正确的错误。
+
+division_results 需要被 collect 为正确的类型。
+
+result_with_list 需要返回单个 Result，其中成功情况是一个整数 vector，失败情况是一个 DivisionError。
+
+list_of_results 需要返回一个 result vector。
+
+查看 https://doc.rust-lang.org/std/iter/trait.Iterator.html#method.collect 看看
+`FromIterator` trait 是如何在 `collect()` 中使用的。这个 trait 非常强力！
+它可以使这个练习的解决方法特别简单。"""
+
+[[exercises]]
+name = "iterators4"
+path = "exercises/iterators/iterators4.rs"
+mode = "test"
+hint = """
+在一个命令式语言中，你可能编写一个 for 循环来更新可变变量。
+或者，你可能编写利用递归和匹配语句编写代码。
+在 Rust 中你可以使用另一种函数方法，使用范围和迭代器优雅地计算阶乘。
+
+提示 2：查看 `fold` 和 `rfold` 方法！"""
+
+[[exercises]]
+name = "iterators5"
+path = "exercises/iterators/iterators5.rs"
+mode = "test"
+hint = """
+关于 std::iter::Iterator trait 的文档包含很多在这里很有用的方法。
+
+从 count_collection_iterator 返回 0 以使代码编译，这样就可以测试 count_iterator。
+
+count_collection_iterator 中的变量 collection 是一个哈希表切片。
+它需要被转为迭代器以使用迭代器方法。
+
+fold 方法可以在 count_collection_iterator 中使用。
+
+关于进一步的挑战，参照关于迭代器的文档来找到让你的代码比使用 fold 更加紧凑的其它方法。"""
+
+# THREADS
+
+[[exercises]]
+name = "threads1"
+path = "exercises/threads/threads1.rs"
+mode = "compile"
+hint = """
+`JoinHandle` 是一个创建线程时返回的结构体：
+https://doc.rust-lang.org/std/thread/fn.spawn.html
+
+一个关于多线程应用的挑战是，主线程可以在派生线程完成前结束。
+https://doc.rust-lang.org/book/ch16-01-threads.html#waiting-for-all-threads-to-finish-using-join-handles
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch16-01-threads.html#%E4%BD%BF%E7%94%A8-join-%E7%AD%89%E5%BE%85%E6%89%80%E6%9C%89%E7%BA%BF%E7%A8%8B%E7%BB%93%E6%9D%9F
+
+收集 JoinHandles 并等待它们完成。
+https://doc.rust-lang.org/std/thread/struct.JoinHandle.html
+"""
+
+[[exercises]]
+name = "threads2"
+path = "exercises/threads/threads2.rs"
+mode = "compile"
+hint = """
+`Arc` 是一个原子引用计数，允许安全、共享地访问 **不可变** 数据。
+但是我们想要 *改变* `jobs_completed` 的数字，因此，我们还需要使用另一个方法，
+它在一个时间点只允许一个线程修改数据。看看书本的这节：
+https://doc.rust-lang.org/book/ch16-03-shared-state.html#atomic-reference-counting-with-arct
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch16-03-shared-state.html#%E5%8E%9F%E5%AD%90%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0-arct
+并继续阅读，如果你想要获取更多提示 :)
+
+
+现在你在 main 中有一个 `Arc` `Mutex` `JobStatus` 了吗？比如：
+`let status = Arc::new(Mutex::new(JobStatus { jobs_completed: 0 }));`
+这和书本中的例子中的代码类似。如果没有，试一下！如果你想获得更多提示，保持阅读！！
+
+
+确保你的线程在休眠前没有持有 mutex 锁，因为这会导致其它线程无法获取锁。
+锁会在它们离开作用域时自动释放。
+
+
+如果你从示例中学到了解决方案，我鼓励你在几天内重返这个练习并再次尝试，以加强你学到的东西 :)"""
+
+[[exercises]]
+name = "threads3"
+path = "exercises/threads/threads3.rs"
+mode = "compile"
+hint = """
+处理线程并发的另一种方法是使用一个 mpsc (multiple producer(多生产者), single consumer(单消费者)) 通道来通信。
+有了发送端和接收端，在一个线程中发送值并在另一个线程接受成为可能。
+通过原始发送端使用 clone() 创建副本可以获得多个生产者。
+
+查看 https://doc.rust-lang.org/book/ch16-02-message-passing.html
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch16-02-message-passing.html
+以获得更多信息。
+"""
+
+# SMART POINTERS
+
+[[exercises]]
+name = "box1"
+path = "exercises/smart_pointers/box1.rs"
+mode = "test"
+hint = """
+步骤 1
+编译器的信息应该有帮助：由于我们不能在递归类型中存储真正的类型，我们需要存储这个值的引用（指针）。
+因此，我们应该将 `List` 放入一个 `Box` 中。更多细节：
+https://doc.rust-lang.org/book/ch15-01-box.html#enabling-recursive-types-with-boxes
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch15-01-box.html#box-%E5%85%81%E8%AE%B8%E5%88%9B%E5%BB%BA%E9%80%92%E5%BD%92%E7%B1%BB%E5%9E%8B
+
+步骤 2
+创建一个空 list 应该非常简单（提示：查看断言）。
+对于非空 list，请记住我们希望使用我们的 Cons "list builder（列表生成器）"。
+尽管当前列表是其中一种整数 (i32)，但可以尝试随便改变定义并试试别的类型！
+"""
+
+[[exercises]]
+name = "rc1"
+path = "exercises/smart_pointers/rc1.rs"
+mode = "compile"
+hint = """
+这是一个使用 Rc<T> 类型的简单练习。每个行星都拥有太阳的所有权，
+并使用 Rc::clone() 来增加太阳的引用计数。
+当使用 drop() 将行星各自移出作用域后，引用计数会随之下降。
+最终，太阳只有一个引用，即它本身，更多信息：
+https://doc.rust-lang.org/book/ch15-04-rc.html
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch15-04-rc.html
+
+* 不幸的是，冥王星不再被认为是一颗行星 :(
+"""
+
+[[exercises]]
+name = "arc1"
+path = "exercises/smart_pointers/arc1.rs"
+mode = "compile"
+hint = """
+使 `shared_numbers` 成为一个来自 numbers vector 的 `Arc`，为了避免创建
+`numbers` 的副本，你需要在循环中创建 `child_numbers`，但仍在主线程中。
+
+`child_numbers` 应该为 numbers 的 Arc 的一个 clone，而不是一个线程本地化的 numbers 副本。
+
+如果你理解了底层理念，这会是一个简单的练习，但是如果你觉得很有挑战，
+考虑阅读书本的第 16 章：
+https://doc.rust-lang.org/stable/book/ch16-00-concurrency.html
+（中文版，译者注）https://rustwiki.org/zh-CN/book/ch16-00-concurrency.html
+"""
+
+[[exercises]]
+name = "cow1"
+path = "exercises/smart_pointers/cow1.rs"
+mode = "compile"
+hint = """
+由于 vector 已经被持有了，`Cow` 类型不需要 clone 它。
+
+查看关于 `Cow` 类型的文档：
+https://doc.rust-lang.org/std/borrow/enum.Cow.html
+"""
+
+# MACROS
+
+[[exercises]]
+name = "macros1"
+path = "exercises/macros/macros1.rs"
+mode = "compile"
+hint = """
+当你调用一个宏时，需要加上与常规函数调用不太一样的东西。
+如果你被卡住了，看一下 `my_macro` 里面有什么。"""
+
+[[exercises]]
+name = "macros2"
+path = "exercises/macros/macros2.rs"
+mode = "compile"
+hint = """
+在关于可用处部分，Rust 的宏和其它部分不完全遵循相同的规则。
+
+不像 Rust 的其它东西，"你定义宏的位置" 和 "你使用宏的位置" 的顺序实际上会影响。"""
+
+[[exercises]]
+name = "macros3"
+path = "exercises/macros/macros3.rs"
+mode = "compile"
+hint = """
+为了在其模块外使用宏，你需要对模块做点特别的事情来将
+宏提到其父级。
+
+同样的技巧也适用于使用 "extern crate" 语句导出宏的 creates，如果你见到过的话。"""
+
+[[exercises]]
+name = "macros4"
+path = "exercises/macros/macros4.rs"
+mode = "compile"
+hint = """
+你只需要添加一个字符就可以让编译通过。
+编写宏的方法是，它希望在每个 "macro arm" 中有某些东西，这样就能区分它们。
+
+到此为止就是我们全部的宏的练习了，但它几乎没有接触 Rust 的宏的表面。
+要获得更全面的介绍，你可以通读 Rust 宏的小读本：https://veykril.github.io/tlborm/"""
+
+#  CLIPPY
+
+[[exercises]]
+name = "clippy1"
+path = "exercises/clippy/clippy1.rs"
+mode = "clippy"
+hint = """
+Rust 将任何长精度或无限精度数学常数的最高精度版本存储在 Rust 的标准库中。
+https://doc.rust-lang.org/stable/std/f32/consts/index.html
+
+我们可能会尝试使用我们自己的某些数学常数的近似值，
+但是 clippy 识别那些不精确的数学常数作为潜在的错误源。
+查看编译输出中 clippy 的警告给出的建议，并使用 std::f32::consts 适当替换常量..."""
+
+[[exercises]]
+name = "clippy2"
+path = "exercises/clippy/clippy2.rs"
+mode = "clippy"
+hint = """
+在 Option 值上的 `for` 循环可以更清晰地表达为一个 `if let`"""
+
+[[exercises]]
+name = "clippy3"
+path = "exercises/clippy/clippy3.rs"
+mode = "clippy"
+hint = "这次没有提示！"
+
+# TYPE CONVERSIONS
+
+[[exercises]]
+name = "using_as"
+path = "exercises/conversions/using_as.rs"
+mode = "test"
+hint = """
+在 `average` 函数的最后一行使用 `as` 运算符将其中一个对象转换为期待返回的类型。"""
+
+[[exercises]]
+name = "from_into"
+path = "exercises/conversions/from_into.rs"
+mode = "test"
+hint = """
+按照 `From` 实现前提供的步骤操作"""
+
+[[exercises]]
+name = "from_str"
+path = "exercises/conversions/from_str.rs"
+mode = "test"
+hint = """
+FromStr 的实现应返回一个包含 Person对象的 Ok，
+或者如果字符串无效时的话返回一个 Err。
+
+这个很像 `from_into` 练习，但是返回错误而不是回退到默认值。
+
+看一下测试用例来看看返回了什么错误变量。
+
+另一个提示：你可以使用 `Result` 的 `map_err` 方法于函数或闭包上包装来自 `parse::<usize>` 的错误。
+
+还有另一个提示：如果你想要在你的解决方案中通过 `?` 运算符传播错误，你可能想要看看：
+https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html
+"""
+
+[[exercises]]
+name = "try_from_into"
+path = "exercises/conversions/try_from_into.rs"
+mode = "test"
+hint = """
+跟着 `TryFrom` 实现前的提供的步骤。
+你可以使用在 https://doc.rust-lang.org/std/convert/trait.TryFrom.html 中的示例。
+
+标准库中是否有一个 `TryFrom` 的实现可以既可以执行需要的整数转换又可以检查输入的范围？
+
+另外一个提示：看一下测试用例，看看应该返回什么错误。
+
+还有另一个提示：你可以使用 `Result` 的 `map_err` 方法于函数或闭包上包装来自 `parse::<usize>` 的错误。
+
+还有另一个提示：如果你想要
+
+还有另一个提示：如果你想要在你的解决方案中通过 `?` 运算符传播错误，你可能想要看看：
+https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/reenter_question_mark.html
+
+挑战：你可以让 `TryFrom` 在多种整数类型的泛型上实现吗？"""
+
+[[exercises]]
+name = "as_ref_mut"
+path = "exercises/conversions/as_ref_mut.rs"
+mode = "test"
+hint = """
+添加 AsRef<str> 作为 trait bound 到函数。"""
